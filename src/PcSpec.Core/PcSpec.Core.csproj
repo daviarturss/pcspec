@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <RootNamespace>PcSpec.Core</RootNamespace>
+    <AssemblyName>PcSpec.Core</AssemblyName>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!--
+      O benchmark mede o proprio codigo: em Debug o JIT desativa otimizacoes e o
+      score cai pela metade (o mesmo laco rende ~1.550 em vez de ~5.200 Mops/s).
+      Otimizar sempre mantem os numeros comparaveis entre Debug e Release.
+    -->
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      WMI e usado apenas para GPU, BIOS e dados de sistema que o SMBIOS nao cobre
+      (Win32_VideoController nao tem equivalente em API de usuario sem COM/DXGI).
+      Todo acesso a WMI e tolerante a falha: se o servico estiver quebrado o resto
+      do relatorio continua funcionando.
+    -->
+    <PackageReference Include="System.Management" Version="10.0.14" />
+  </ItemGroup>
+</Project>

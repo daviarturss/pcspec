@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/PcSpec.App/PcSpec.App.csproj" />
+    <Project Path="src/PcSpec.Cli/PcSpec.Cli.csproj" />
+    <Project Path="src/PcSpec.Core/PcSpec.Core.csproj" />
+  </Folder>
+</Solution>
